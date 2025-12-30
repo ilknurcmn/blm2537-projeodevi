@@ -62,15 +62,15 @@ nav{
 
 
 .cardbox{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content:center;
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
     gap: 30px;
-    padding:40px;
+    padding: 40px;
+    justify-content: center;
 }
 
 .card{
-    width:250px;
+    width:280px;
     background:#5b9564;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
@@ -78,6 +78,8 @@ nav{
     text-align: center;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+
 
 .card img {
     width: 100%;
@@ -87,8 +89,9 @@ nav{
 }
 
 .card:hover{
-    transform: translateY(-12px);
-    box-shadow: 0px 12px 20px rgba(0,0,0,0.3);
+    transform: scale(1.08) translateY(-12px);
+    box-shadow: 0px 16px 30px rgba(0,0,0,0.35);
+    z-index: 10;
 }
 
 .card:hover img{
@@ -245,4 +248,77 @@ form input:focus, form textarea:focus {
 
 .dark-mode .submenu li a:hover {
     background: #326888;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    display: none;
+}
+
+
+.card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.15);
+    width: 400px;
+    max-width: 90%;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.intro{
+    margin:10px;
+
+}
+
+.detail-container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.detail-image {
+    flex: 1;
+}
+
+.detail-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;       
+    border-radius: 12px;
+    box-shadow: 0px 6px 16px rgba(0,0,0,0.25);
+}
+
+.detail-text {
+    flex: 2;
+}
+
+.detail-text h2 {
+    margin-top: 0;
+    color: #2d5177;
+}
+
+.detail-text p {
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+
+.dark-mode .detail-text h2 {
+    color: #dfdfcc;
+}
+
+.dark-mode .detail-text p {
+    color: #e0e0e0;
 }
